@@ -11,7 +11,7 @@ groupadd  ver
 ## 创建用户
 
 ```bash
-useradd -m -g ver terwer     # 新增用户terwer
+useradd -m -g root terwer     # 新增用户terwer
 ```
 
 # 设置用户密码
@@ -21,5 +21,22 @@ passwd  terwer     # 换行输密码
 
 # 切换到home目录，在root用户下给terwer授权
 ```bash
-chmod 775 -R terwer
+chmod 777 -R terwer
+```
+
+# 把terwer添加道sudouser
+
+```
+  1、切换到root用户，运行visudo命令
+  
+  ···
+  visudo
+  ···
+
+  2、找到root ALL=(ALL) ALL，在下面添加一行 xxx ALL=(ALL) ALL 其中xxx是要加入的用户名称
+  
+  ···
+  terwer ALL=(ALL) ALL
+  ···
+  
 ```
