@@ -1,5 +1,6 @@
 ```bash
-docker run --name webserver -d -p 80:80 nginxUnable to find image 'nginx:latest' locally
+docker run --name webserver -d -p 80:80 nginx
+# Unable to find image 'nginx:latest' locally
 # latest: Pulling from library/nginx
 # f7e2b70d04ae: Pull complete
 # 08dd01e3f3ac: Pull complete
