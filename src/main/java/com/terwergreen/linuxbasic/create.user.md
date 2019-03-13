@@ -26,17 +26,15 @@ chmod 777 -R terwer
 
 # 把terwer添加道sudouser
 
-```
-  1、切换到root用户，运行visudo命令
-  
-  ···
-  visudo
-  ···
+1、切换到root用户，运行visudo命令
 
-  2、找到root ALL=(ALL) ALL，在下面添加一行 xxx ALL=(ALL) ALL 其中xxx是要加入的用户名称
-  
-  ···
-  terwer ALL=(ALL) ALL
-  ···
-  
 ```
+visudo
+```
+
+2、找到root ALL=(ALL) ALL，在下面添加一行 xxx ALL=(ALL) ALL 其中xxx是要加入的用户名称
+
+```
+terwer ALL=(ALL) ALL
+```
+  
