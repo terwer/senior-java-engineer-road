@@ -1,14 +1,13 @@
 # 安装镜像
 
+```
+docker pull mysql/mysql-server:5.7.24
+```
+
 # 列出所有镜像
 
 ```
 docker images
-```
-
-# 拉起镜像
-```
-docker pull ngnix
 ```
 
 # 删除镜像
