@@ -1,0 +1,1 @@
+select FIRST_NAME,LAST_NAME,EMAIL from hr.EMPLOYEES  where FIRST_NAME='Lex'
