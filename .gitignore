@@ -24,3 +24,7 @@
 /.nb-gradle/
 /build/
 /logs/
+
+### Temp Data ###
+/data/
+.oracle_data
