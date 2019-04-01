@@ -14,4 +14,4 @@ services:
       - processes=200
       - DATABASES=sample
     volumes:
-      - .oracle_data:/u01/app/oracle
+      - ./data/oracle:/u01/app/oracle
