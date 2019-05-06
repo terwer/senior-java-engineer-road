@@ -5,10 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.terwergreen</groupId>
-    <artifactId>main</artifactId>
+    <artifactId>iocinit</artifactId>
     <version>1.0.0</version>
 
-    <modules>
-        <module>src/main/java/com/terwergreen/springsourceexplain/iocinit</module>
-    </modules>
+    <dependencies>
+        <!-- spring-beans -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+    </dependencies>
 </project>
