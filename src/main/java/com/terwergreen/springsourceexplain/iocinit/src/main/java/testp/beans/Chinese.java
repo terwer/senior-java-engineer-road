@@ -9,6 +9,6 @@ package testp.beans;
  **/
 public class Chinese implements Person {
     public String sayHello(String name) {
-        return name + "你好";
+        return "你好," + name;
     }
 }
