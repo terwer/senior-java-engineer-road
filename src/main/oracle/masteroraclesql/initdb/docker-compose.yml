@@ -5,8 +5,8 @@ services:
     image: terwer/oracle-xe-11g:latest
     container_name: oracle-xe-11g
     build:
-      context: ./
-      dockerfile: ./Dockerfile
+      context: ""
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
       - "1521:1521"
