@@ -1,4 +1,4 @@
-package com.terwergreen.javacoretechnology.chapter1;
+package chapter1;
 
 import java.util.Arrays;
 

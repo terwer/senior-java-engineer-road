@@ -1,4 +1,4 @@
-package com.terwergreen.ssyjavase.lesson39;
+package lesson39;
 
 import java.util.ArrayList;
 

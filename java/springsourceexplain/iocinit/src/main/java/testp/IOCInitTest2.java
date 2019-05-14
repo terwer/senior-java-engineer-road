@@ -23,7 +23,7 @@ public class IOCInitTest2 {
         reader.loadBeanDefinitions(resource);
 
         // 从beanFactory获取bean
-        Person p1 = (Person) beanFactory.getBean("person");
+        Person p1 = (Person) beanFactory.getBean("chinese");
         String result = p1.sayHello("Green");
         System.out.println(result);
     }
