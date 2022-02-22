@@ -13,7 +13,9 @@ public class App {
 
         try {
             // 1、加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
+            // The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+            // 备注：mysql8.0的driver不需要在注册了
+            // Class.forName("com.mysql.jdbc.Driver");
 
             // 2、获取链接
             String url = "jdbc:mysql://localhost:3306/jdbc_simple?charcterEncoding=utf-8&useSSL=false";
