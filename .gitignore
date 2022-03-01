@@ -29,3 +29,5 @@
 /data/
 .oracle_data
 classes
+
+.DS_Store
