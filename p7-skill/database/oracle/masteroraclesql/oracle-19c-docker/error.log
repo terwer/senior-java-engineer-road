@@ -1,0 +1,386 @@
+
+
+Upgrade
+
+
+
+
+terwer
+
+oracle19c
+oracle/database:19.3.0-ee
+RUNNING
+
+
+
+
+
+ORACLE EDITION: ENTERPRISE
+
+
+LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 04-MAR-2022 11:55:39
+
+
+Copyright (c) 1991, 2019, Oracle.  All rights reserved.
+
+
+Starting /opt/oracle/product/19c/dbhome_1/bin/tnslsnr: please wait...
+
+
+TNSLSNR for Linux: Version 19.0.0.0.0 - Production
+
+System parameter file is /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora
+
+Log messages written to /opt/oracle/diag/tnslsnr/6303780f4b53/listener/alert/log.xml
+
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1)))
+
+Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=0.0.0.0)(PORT=1521)))
+
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC1)))
+
+STATUS of the LISTENER
+
+------------------------
+
+Alias                     LISTENER
+
+Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
+
+Start Date                04-MAR-2022 11:55:39
+
+Uptime                    0 days 0 hr. 0 min. 0 sec
+
+Trace Level               off
+
+Security                  ON: Local OS Authentication
+
+SNMP                      OFF
+
+Listener Parameter File   /opt/oracle/product/19c/dbhome_1/network/admin/listener.ora
+
+Listener Log File         /opt/oracle/diag/tnslsnr/6303780f4b53/listener/alert/log.xml
+
+Listening Endpoints Summary...
+
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1)))
+
+  (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=0.0.0.0)(PORT=1521)))
+
+The listener supports no services
+
+The command completed successfully
+
+[WARNING] [DBT-11209] Current available memory is less than the required available memory (8,192MB) for creating the database.
+
+   CAUSE: Following nodes do not have required available memory :
+
+ Node:6303780f4b53 Available memory:1.2817GB (1343964.0KB)
+
+
+[WARNING] [DBT-06208] The 'SYS' password entered does not conform to the Oracle recommended standards.
+
+   CAUSE:
+
+a. Oracle recommends that the password entered should be at least 8 characters in length, contain at least 1 uppercase character, 1 lower case character and 1 digit [0-9].
+
+b.The password entered is a keyword that Oracle does not recommend to be used as password
+
+   ACTION: Specify a strong password. If required refer Oracle documentation for guidelines.
+
+[WARNING] [DBT-06208] The 'SYSTEM' password entered does not conform to the Oracle recommended standards.
+
+   CAUSE:
+
+a. Oracle recommends that the password entered should be at least 8 characters in length, contain at least 1 uppercase character, 1 lower case character and 1 digit [0-9].
+
+b.The password entered is a keyword that Oracle does not recommend to be used as password
+
+   ACTION: Specify a strong password. If required refer Oracle documentation for guidelines.
+
+[WARNING] [DBT-06208] The 'PDBADMIN' password entered does not conform to the Oracle recommended standards.
+
+   CAUSE:
+
+a. Oracle recommends that the password entered should be at least 8 characters in length, contain at least 1 uppercase character, 1 lower case character and 1 digit [0-9].
+
+b.The password entered is a keyword that Oracle does not recommend to be used as password
+
+   ACTION: Specify a strong password. If required refer Oracle documentation for guidelines.
+
+Prepare for db operation
+
+8% complete
+
+Copying database files
+
+9% complete
+
+[WARNING] ORA-27104: system-defined limits for shared memory was misconfigured
+
+
+[FATAL] ORA-01034: ORACLE not available
+
+
+31% complete
+
+100% complete
+
+[FATAL] ORA-01034: ORACLE not available
+
+
+8% complete
+
+0% complete
+
+Look at the log file "/opt/oracle/cfgtoollogs/dbca/ORCLCDB/ORCLCDB.log" for further details.
+
+[ 2022-03-04 11:55:44.183 UTC ] [WARNING] [DBT-11209] Current available memory is less than the required available memory (8,192MB) for creating the database.
+
+[ 2022-03-04 11:55:44.214 UTC ] [WARNING] [DBT-06208] The 'SYS' password entered does not conform to the Oracle recommended standards.
+
+[ 2022-03-04 11:55:44.214 UTC ] [WARNING] [DBT-06208] The 'SYSTEM' password entered does not conform to the Oracle recommended standards.
+
+[ 2022-03-04 11:55:44.215 UTC ] [WARNING] [DBT-06208] The 'PDBADMIN' password entered does not conform to the Oracle recommended standards.
+
+[ 2022-03-04 11:55:45.557 UTC ] Prepare for db operation
+
+DBCA_PROGRESS : 8%
+
+[ 2022-03-04 11:55:45.648 UTC ] Copying database files
+
+DBCA_PROGRESS : 9%
+
+[ 2022-03-04 11:55:48.063 UTC ] [WARNING] ORA-27104: system-defined limits for shared memory was misconfigured
+
+
+[ 2022-03-04 11:55:48.064 UTC ] [FATAL] ORA-01034: ORACLE not available
+
+
+DBCA_PROGRESS : 31%
+
+DBCA_PROGRESS : 100%
+
+[ 2022-03-04 11:55:48.073 UTC ] [FATAL] ORA-01034: ORACLE not available
+
+
+DBCA_PROGRESS : 8%
+
+DBCA_PROGRESS : 0%
+
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 4 11:55:49 2022
+
+Version 19.3.0.0.0
+
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to an idle instance.
+
+
+SQL>    ALTER SYSTEM SET control_files='/opt/oracle/oradata/ORCLCDB/control01.ctl' scope=spfile
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    ALTER SYSTEM SET local_listener=''
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    ALTER PLUGGABLE DATABASE ORCL SAVE STATE
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL> BEGIN DBMS_XDB_CONFIG.SETGLOBALPORTENABLED (TRUE); END;
+
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL> SQL>    ALTER SESSION SET "_oracle_script" = true
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    CREATE USER OPS$oracle IDENTIFIED EXTERNALLY
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    GRANT CREATE SESSION TO OPS$oracle
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    GRANT SELECT ON sys.v_$pdbs TO OPS$oracle
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    GRANT SELECT ON sys.v_$database TO OPS$oracle
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL>    ALTER USER OPS$oracle SET container_data=all for sys.v_$pdbs container = current
+
+*
+
+ERROR at line 1:
+
+ORA-01034: ORACLE not available
+
+Process ID: 0
+
+Session ID: 0 Serial number: 0
+
+
+
+SQL> SQL> Disconnected
+
+ORACLE_HOME = [/home/oracle] ? ORACLE_BASE environment variable is not being set since this
+
+information is not available for the current user ID .
+
+You can set ORACLE_BASE manually if it is required.
+
+Resetting ORACLE_BASE to its previous value or ORACLE_HOME
+
+The Oracle base remains unchanged with value /opt/oracle
+
+ORACLE_HOME = [/home/oracle] ? ORACLE_BASE environment variable is not being set since this
+
+information is not available for the current user ID .
+
+You can set ORACLE_BASE manually if it is required.
+
+Resetting ORACLE_BASE to its previous value or ORACLE_HOME
+
+The Oracle base remains unchanged with value /opt/oracle
+
+#####################################
+
+########### E R R O R ###############
+
+DATABASE SETUP WAS NOT SUCCESSFUL!
+
+Please check output for further info!
+
+########### E R R O R ###############
+
+#####################################
+
+The following output is now a tail of the alert.log:
+
+2022-03-04T11:55:48.041299+00:00
+
+Starting ORACLE instance (normal) (OS id: 516)
+
+2022-03-04T11:55:48.054219+00:00
+
+System cannot support SGA size of 6144 MB.
+
+2022-03-04T11:55:48.054289+00:00
+
+Total system memory configured is 1985 MB.
+
+2022-03-04T11:55:48.054352+00:00
+
+Instance maximum shared memory size should be less than 1786 MB.
+
+/opt/oracle/checkDBStatus.sh: line 26: sqlplus: command not found
+
+mv: cannot stat '/opt/oracle/product/19c/dbhome_1/dbs/spfileORCLCDB.ora': No such file or directory
+
+mv: cannot stat '/opt/oracle/product/19c/dbhome_1/dbs/orapwORCLCDB': No such file or directory
+
+/opt/oracle/checkDBStatus.sh: line 26: sqlplus: command not found
+
+Search...
+Stick to bottom

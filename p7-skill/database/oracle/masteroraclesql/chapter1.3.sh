@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-ssh oracle@39.104.66.135
+# ssh root@127.0.0.1 -p 23
 # 123456
-sqlplus hr@orcl
+# set ORACLE_HOME=/opt/oracle/product/19c/dbhome_1
+# export PATH=$ORACLE_HOME/bin:$PATH
+docker exec -it oracle19c /bin/sh
+# sqlplus hr@orcl
 # 123456

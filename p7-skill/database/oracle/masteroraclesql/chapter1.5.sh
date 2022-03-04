@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-ssh oracle@39.104.66.135
-# 123456
+docker exec -it oracle19c /bin/sh
 SQL> help index
 # Enter Help [topic] for help.
 # @             COPY         PASSWORD                 SHOW

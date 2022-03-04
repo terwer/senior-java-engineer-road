@@ -1,3 +1,2 @@
-#!/usr/bin/env bash
 docker exec -it oracle19c /bin/sh
-SQL> help set
+sqlplus sys/123456 as sysdba
