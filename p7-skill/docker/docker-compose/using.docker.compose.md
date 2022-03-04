@@ -14,18 +14,18 @@ A ``docker-compose.yml`` looks like this:
 version: '3'
 services:
   web:
-    build: .
+    build: ../dockerpractise
     ports:
-    - "5000:5000"
+      - "5000:5000"
     volumes:
-    - .:/code
-    - logvolume01:/var/log
+      - .:/code
+      - logvolume01:/var/log
     links:
-    - redis
+      - redis
   redis:
     image: redis
 volumes:
-  logvolume01: {}
+  logvolume01: { }
 ````
 
 https://docs.docker.com/compose/compose-file/
