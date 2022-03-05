@@ -1,11 +1,11 @@
 # Java SE 第二讲：原生数据类型
 1. Windows: notepad, editplus, ultraedit, gvim       
-   Linux: vi, vim, gedit   
+   Linux: vi, vim, gedit
 
 
 2. Java 中的数据类型分为两大类：          
-1）原生数据类型 （Primitive Data Type）          
-2）引用类型（对象类型） （Reference Type）  
+   1）原生数据类型 （Primitive Data Type）          
+   2）引用类型（对象类型） （Reference Type）
 
 
 3. 变量与常量：所谓常量，就是值不会变化的量；所谓变量，就是值可以变化
@@ -13,8 +13,8 @@
 
 
 4. 如何定义变量？           
-变量类型 变量名;           
-int a;
+   变量类型 变量名;           
+   int a;
 
 
 5. 如何为变量赋值？

@@ -2,7 +2,7 @@
 
 Java SE：Java Standard Edition       
 Java ME: Java Micro Edition    
-Java EE：Java Enterprise Edition    
+Java EE：Java Enterprise Edition
 
 Java是由Sun公司推出的（2010年初被Oracle公司收购）。
 
@@ -22,7 +22,7 @@ jdk 1.6(6.0)：Mustang，野马
 jdk 1.7(7.0): Dolphin，海豚            
 jdk 1.8(8.0) LTS    
 java 11 LTS     
-java 17 LTS      
+java 17 LTS
 
 版本历史
 
@@ -45,11 +45,11 @@ https://www.wdbyte.com/java/java-17/
 
 Java程序的执行过程分为两步：        
 编译       
-执行         
+执行
 
 Class文件是字节码文件，程序最终执行的就是这个字节码（bytecode）文件。        
 编译命令：`java Test.java`       
-执行命令：`java Test`（注意，Test后面没有.class）      
+执行命令：`java Test`（注意，Test后面没有.class）
 
 Java是跨平台的语言，真正执行的不是二进制代码，而是字节码。
 
