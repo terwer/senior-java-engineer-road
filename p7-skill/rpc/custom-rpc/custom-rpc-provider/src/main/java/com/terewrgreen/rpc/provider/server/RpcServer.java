@@ -1,5 +1,6 @@
 package com.terewrgreen.rpc.provider.server;
 
+import com.terewrgreen.rpc.provider.handler.RpcServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -10,6 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,6 +25,9 @@ import org.springframework.stereotype.Service;
 public class RpcServer implements DisposableBean {
     private NioEventLoopGroup bossGroup;
     private NioEventLoopGroup workerGroup;
+
+    @Autowired
+    private RpcServerHandler rpcServerHandler;
 
     public void startServer(String ip, int port) {
         try {
@@ -44,8 +49,7 @@ public class RpcServer implements DisposableBean {
                             pipeline.addLast(new StringDecoder());
                             pipeline.addLast(new StringEncoder());
                             // 业务处理类
-                            // TODO
-                            // pipeline.addLast(null);
+                            pipeline.addLast(rpcServerHandler);
                         }
                     });
 

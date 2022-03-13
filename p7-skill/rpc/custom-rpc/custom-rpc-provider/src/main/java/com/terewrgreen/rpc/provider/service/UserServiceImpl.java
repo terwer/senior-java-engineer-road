@@ -1,6 +1,6 @@
 package com.terewrgreen.rpc.provider.service;
 
-import com.api.IUSerService;
+import com.terewrgreen.api.IUSerService;
 import com.terewrgreen.pojo.User;
 import com.terewrgreen.rpc.provider.anno.RpcService;
 import org.springframework.stereotype.Service;
@@ -28,9 +28,9 @@ public class UserServiceImpl implements IUSerService {
         userMap.put(user.getId(), user);
 
         User user2 = new User();
-        user.setId(2);
-        user.setName("张三");
-        userMap.put(user2.getId(), user);
+        user2.setId(2);
+        user2.setName("张三");
+        userMap.put(user2.getId(), user2);
 
         return userMap.get(id);
     }
