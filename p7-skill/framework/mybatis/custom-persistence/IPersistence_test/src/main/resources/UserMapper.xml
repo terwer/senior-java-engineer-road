@@ -1,9 +1,9 @@
-<mapper namespace="user">
+<mapper namespace="com.terwergreen.dao.IUSerDao">
     <!-- sql的唯一标识：namespace.id组合：statementId -->
-    <select id="selectList" resultType="com.terwergreen.pojo.User">
+    <select id="findAll" resultType="com.terwergreen.pojo.User">
         select * from user
     </select>
-    <select id="selectOne" resultType="com.terwergreen.pojo.User" parameterType="com.terwergreen.pojo.User">
+    <select id="findByCondition" resultType="com.terwergreen.pojo.User" parameterType="com.terwergreen.pojo.User">
         select * from user where id = #{id} and username = #{username}
     </select>
 </mapper>

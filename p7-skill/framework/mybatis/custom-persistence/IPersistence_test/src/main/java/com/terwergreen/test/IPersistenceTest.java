@@ -1,5 +1,6 @@
 package com.terwergreen.test;
 
+import com.terwergreen.dao.IUSerDao;
 import com.terwergreen.io.Resources;
 import com.terwergreen.pojo.User;
 import com.terwergreen.sqlsession.SqlSession;
@@ -28,7 +29,8 @@ public class IPersistenceTest {
         User user = new User();
         user.setId(1);
         user.setUsername("tyw");
-        User user2 = sqlSession.selectOne("user.selectOne", user);
+        IUSerDao userDao = sqlSession.getMapper(IUSerDao.class);
+        User user2 = userDao.findByCondition(user);
 
         System.out.println(user2);
     }
@@ -39,7 +41,8 @@ public class IPersistenceTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<User> userList = sqlSession.selectList("user.selectList");
+        IUSerDao userDao = sqlSession.getMapper(IUSerDao.class);
+        List<User> userList = userDao.findAll();
         for (User user : userList) {
             System.out.println(user);
         }
