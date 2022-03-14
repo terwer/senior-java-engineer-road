@@ -8,6 +8,5 @@ create table if not exists user(
 );
 
 # user data
-INSERT INTO user(id, usename) VALUES (1, '唐有炜');
-INSERT INTO user(id, usename) VALUES (2, 'tyw');
-INSERT INTO user (id, usename) VALUES (3, '张月');
+insert into user (id, username)
+values (1, 'tyw'), (2, '张月'), (4, 'haha'), (5, 'dali');

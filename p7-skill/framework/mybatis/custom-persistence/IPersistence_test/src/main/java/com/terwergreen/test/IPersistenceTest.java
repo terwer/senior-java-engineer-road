@@ -8,6 +8,7 @@ import com.terwergreen.sqlsession.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * 测试类
@@ -30,5 +31,17 @@ public class IPersistenceTest {
         User user2 = sqlSession.selectOne("user.selectOne", user);
 
         System.out.println(user2);
+    }
+
+    @Test
+    public void test2() throws Exception {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<User> userList = sqlSession.selectList("user.selectList");
+        for (User user : userList) {
+            System.out.println(user);
+        }
     }
 }

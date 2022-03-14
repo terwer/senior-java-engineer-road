@@ -64,11 +64,12 @@ public class SimpleExecutor implements Executor {
         ResultSet resultSet = preparedStatement.executeQuery();
         String returnType = mappedStatement.getResultType();
         Class<?> resultTypeClass = getClassType(returnType);
-        Object o = resultTypeClass.newInstance();
         ArrayList<Object> objects = new ArrayList<>();
 
         // 封装返回结果集
         while (resultSet.next()) {
+            Object o = resultTypeClass.newInstance();
+
             ResultSetMetaData metaData = resultSet.getMetaData();
             for (int i = 1; i <= metaData.getColumnCount(); i++) {
                 String columnName = metaData.getColumnName(i);
