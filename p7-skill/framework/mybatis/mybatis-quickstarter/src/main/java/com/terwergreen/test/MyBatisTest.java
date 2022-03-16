@@ -29,5 +29,53 @@ public class MyBatisTest {
         for (User user : userList) {
             System.out.println(user);
         }
+
+        // 关闭资源
+        sqlSession.close();
+    }
+
+    @Test
+    public void test2() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        User user = new User();
+        user.setId(8);
+        user.setUsername("测试8");
+        sqlSession.insert("user.saveUser", user);
+        sqlSession.commit();
+
+        // 关闭资源
+        sqlSession.close();
+    }
+
+    @Test
+    public void test3() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        User user = new User();
+        user.setId(8);
+        user.setUsername("李四");
+        sqlSession.update("user.updateUser", user);
+        sqlSession.commit();
+
+        // 关闭资源
+        sqlSession.close();
+    }
+
+    @Test
+    public void test4() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        sqlSession.delete("user.deleteUser", 6);
+        sqlSession.commit();
+
+        // 关闭资源
+        sqlSession.close();
     }
 }
