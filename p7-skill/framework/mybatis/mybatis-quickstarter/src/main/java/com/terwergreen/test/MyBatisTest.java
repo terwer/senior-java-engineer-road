@@ -1,5 +1,7 @@
 package com.terwergreen.test;
 
+import com.terwergreen.dao.IUserDao;
+import com.terwergreen.dao.UserDaoImpl;
 import com.terwergreen.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -77,5 +79,17 @@ public class MyBatisTest {
 
         // 关闭资源
         sqlSession.close();
+    }
+
+    // ===============
+    // Dao层常规方式
+    @Test
+    public void test5() throws IOException {
+        IUserDao userDao = new UserDaoImpl();
+        List<User> userList = userDao.findAll();
+
+        for (User user : userList) {
+            System.out.println(user);
+        }
     }
 }
