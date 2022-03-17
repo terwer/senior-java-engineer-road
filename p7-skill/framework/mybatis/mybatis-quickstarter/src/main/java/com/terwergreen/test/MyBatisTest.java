@@ -1,7 +1,6 @@
 package com.terwergreen.test;
 
 import com.terwergreen.dao.IUserDao;
-import com.terwergreen.dao.UserDaoImpl;
 import com.terwergreen.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -82,10 +81,15 @@ public class MyBatisTest {
     }
 
     // ===============
-    // Dao层常规方式
+    // Dao层代理开发方式
     @Test
     public void test5() throws IOException {
-        IUserDao userDao = new UserDaoImpl();
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
         List<User> userList = userDao.findAll();
 
         for (User user : userList) {
