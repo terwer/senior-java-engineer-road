@@ -1,3 +1,12 @@
+# JDBC的问题分析
+# 自定义RPC框架
+> 2022/03/06 校对完成 <i class="el-icon-success"></i>
+>
+> 文章更新历史
+>
+> 2022/03/16 初稿。
+>
+> 原文地址：[http://www.terwergreen.com/post/jdbc-de-wen-ti-fen-xi.html](http://www.terwergreen.com/post/jdbc-de-wen-ti-fen-xi.html)
 # 核心实现
 
 ```
@@ -65,26 +74,37 @@ public class Main {
 ```
 
 1.1 问题分析
+
 JDBC问题总结:
+
 原始jdbc开发存在的问题如下:
+
 1、 数据库连接创建、释放频繁造成系统资源浪费，从而影响系统性能。
+
 2、 Sql语句在代码中硬编码，造成代码不易维护，实际应用中sql变化的可能较大，sql变动需要改变 java代码。
+
 3、 使用preparedStatement向占有位符号传参数存在硬编码，因为sql语句的where条件不一定，可能 多也可能少，修改sql还要修改代码，系统不易维护。
+
 4、 对结果集解析存在硬编码(查询列名)，sql变化导致解析代码变化，系统不易维护，如果能将数据库记录封装成 pojo对象解析比较方便
 
 1.2 问题解决思路
-1使用数据库连接池初始化连接资源
-2将sql语句抽取到xml配置文件中
-3使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射
 
+1使用数据库连接池初始化连接资源
+
+2将sql语句抽取到xml配置文件中
+
+3使用反射、内省等底层技术，自动将实体与表进行属性与字段的自动映射
 
 # mysql驱动链接
 
-https://files.cnblogs.com/files/tangyouwei/mysql-connector-java-5.1.49.jar.zip
+[https://files.cnblogs.com/files/tangyouwei/mysql-connector-java-5.1.49.jar.zip](https://files.cnblogs.com/files/tangyouwei/mysql-connector-java-5.1.49.jar.zip)
 
 # 源码
 
-https://github.com/terwer/mybatis-test
+Gitee版
 
-修正版
-https://github.com/terwer/senior-java-engineer-road/blob/master/p7-skill/mybatis/jdbc-simple/src/main/java/com/terwergreen/App.java
+[https://gitee.com/youweics/senior-java-engineer-road/blob/master/p7-skill/framework/mybatis/jdbc-simple/src/main/java/com/terwergreen/App.java](https://gitee.com/youweics/senior-java-engineer-road/blob/master/p7-skill/framework/mybatis/jdbc-simple/src/main/java/com/terwergreen/App.java)
+
+Github版
+
+[https://github.com/terwer/senior-java-engineer-road/blob/master/p7-skill/framework/mybatis/jdbc-simple/src/main/java/com/terwergreen/App.java](https://github.com/terwer/senior-java-engineer-road/blob/master/p7-skill/framework/mybatis/jdbc-simple/src/main/java/com/terwergreen/App.java)
