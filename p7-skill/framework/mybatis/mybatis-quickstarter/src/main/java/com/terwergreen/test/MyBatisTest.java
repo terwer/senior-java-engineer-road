@@ -96,4 +96,89 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+
+
+    /**
+     * if测试
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test6() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
+        User user = new User();
+        user.setId(2);
+        List<User> userList = userDao.findByCondition(user);
+
+        for (User user2 : userList) {
+            System.out.println(user2);
+        }
+    }
+
+    /**
+     * where测试
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test7() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
+        User user = new User();
+        user.setId(1);
+        user.setUsername("tyw");
+        List<User> userList = userDao.findByConditionWhere(user);
+
+        for (User user2 : userList) {
+            System.out.println(user2);
+        }
+    }
+
+    /**
+     * foreach测试
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test8() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
+        Integer[] ids = new Integer[]{1, 2, 4};
+        List<User> userList = userDao.findByIds(ids);
+
+        for (User user2 : userList) {
+            System.out.println(user2);
+        }
+    }
+
+    /**
+     * sql抽取测试
+     *
+     * @throws IOException
+     */
+    @Test
+    public void test9() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
+        User user2 = userDao.findById(1);
+
+        System.out.println(user2);
+    }
 }

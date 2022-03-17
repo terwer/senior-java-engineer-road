@@ -6,9 +6,52 @@
     <!-- namespace：名称空间，与id组合构成sql的唯一标识
          resultType：返回值类型
      -->
+
+    <!-- 抽取sql片段简化编写 -->
+    <sql id="selectUser">select * from user</sql>
+
     <!-- 查询用户 -->
     <select id="findAll" resultType="uSeR">
         select * from user
+    </select>
+
+    <!-- 根据ID查询用户 -->
+    <select id="findById" parameterType="int" resultType="user">
+        <include refid="selectUser"></include> where id=#{id}
+    </select>
+
+    <!-- 多条件组合查询用户：if案例 -->
+    <select id="findByCondition" parameterType="user" resultType="user">
+        select * from user where 1=1
+        <if test="id!=null">
+            and id=#{id}
+        </if>
+        <if test="username!=null">
+            and username=#{username}
+        </if>
+    </select>
+
+    <!-- 多条件组合查询用户：where案例 -->
+    <select id="findByConditionWhere" parameterType="user" resultType="user">
+        select * from user
+        <where>
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="username!=null">
+                and username=#{username}
+            </if>
+        </where>
+    </select>
+
+    <!-- 多值查询：foerach案例 -->
+    <select id="findByIds" parameterType="list" resultType="user">
+        select * from user
+        <where>
+            <foreach collection="array" open="id in (" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </where>
     </select>
 
     <!-- 添加用户
