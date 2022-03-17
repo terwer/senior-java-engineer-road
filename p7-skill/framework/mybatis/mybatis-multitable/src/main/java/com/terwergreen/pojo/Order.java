@@ -12,6 +12,7 @@ public class Order {
     private String orderTime;
     private Double total;
 
+    // 代表当前订单属于哪一个用户
     private User user;
 
     public Integer getId() {

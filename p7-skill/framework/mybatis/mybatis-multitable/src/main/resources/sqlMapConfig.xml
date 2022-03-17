@@ -45,7 +45,7 @@
     <!-- 引入映射配置文件 -->
     <mappers>
         <!--
-        <mapper resource="IUserMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
         -->
         <package name="com.terwergreen.mapper"/>
     </mappers>

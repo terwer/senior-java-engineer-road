@@ -1,6 +1,6 @@
 package com.terwergreen;
 
-import com.terwergreen.mapper.IUserMapper;
+import com.terwergreen.mapper.OrderMapper;
 import com.terwergreen.pojo.Order;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -26,7 +26,7 @@ public class MyBatisQueryMapTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        IUserMapper userMapper = sqlSession.getMapper(IUserMapper.class);
+        OrderMapper userMapper = sqlSession.getMapper(OrderMapper.class);
 
         List<Order> orderList = userMapper.findOrderAndUser();
         for (Order order : orderList) {
