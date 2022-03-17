@@ -44,6 +44,6 @@
 
     <!-- 引入映射配置文件 -->
     <mappers>
-        <mapper resource="UserMapper.xml"/>
+        <mapper resource="IUserMapper.xml"/>
     </mappers>
 </configuration>

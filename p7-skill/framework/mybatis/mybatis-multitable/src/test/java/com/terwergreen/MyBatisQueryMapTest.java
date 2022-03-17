@@ -1,6 +1,16 @@
 package com.terwergreen;
 
+import com.terwergreen.mapper.IUserMapper;
+import com.terwergreen.pojo.Order;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 /**
  * MyBatis查询映射测试
@@ -11,7 +21,16 @@ import org.junit.Test;
  **/
 public class MyBatisQueryMapTest {
     @Test
-    public void test1() {
+    public void test1() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
 
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserMapper userMapper = sqlSession.getMapper(IUserMapper.class);
+
+        List<Order> orderList = userMapper.findOrderAndUser();
+        for (Order order : orderList) {
+            System.out.println(order);
+        }
     }
 }
