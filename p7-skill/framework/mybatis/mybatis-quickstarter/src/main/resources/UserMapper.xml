@@ -7,7 +7,7 @@
          resultType：返回值类型
      -->
     <!-- 查询用户 -->
-    <select id="findAll" resultType="com.terwergreen.pojo.User">
+    <select id="findAll" resultType="uSeR">
         select * from user
     </select>
 
