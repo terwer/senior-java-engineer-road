@@ -1,4 +1,4 @@
-package com.terwergreen;
+package com.terwergreen.insert.multi;
 
 import com.terwergreen.pojo.User;
 import com.terwergreen.util.ConnectionFactory;
@@ -8,26 +8,37 @@ import com.terwergreen.util.TransactionManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 /**
- * 插入数据
+ * 插入数据操作线程
  *
- * @name: InsertTest
+ * @name: InsertThread
  * @author: terwer
- * @date: 2022-03-18 18:44
+ * @date: 2022-03-18 23:23
  **/
-public class InsertTest {
-    private static final Integer MAX_COUNT = 1000_0;
+public class InsertThread implements Runnable {
+    private final Integer startIndex;
+    private final Integer endIndex;
+    private static int num = 0;
 
-    public static void main(String[] args) throws Exception {
-        float totalTime = 0F;
-        for (int i = 0; i < MAX_COUNT; i++) {
-            long startTime = System.currentTimeMillis();
+    public InsertThread(Integer startIndex, Integer endIndex) {
+        this.startIndex = startIndex;
+        this.endIndex = endIndex;
+    }
 
+    @Override
+    public void run() {
+        try {
+            System.out.println("doWork开始");
+            doWork(startIndex, endIndex);
+        } catch (Throwable e) {
+            System.out.println("doWork出错");
+            e.printStackTrace();
+        }
+    }
+
+    private static void doWork(Integer startIndex, Integer endIndex) throws Exception {
+        for (int i = startIndex; i < endIndex; i++) {
             User user = new User();
             Integer index = i + 1;
             user.setId(index);
@@ -37,20 +48,15 @@ public class InsertTest {
             user.setSex(0);
 
             boolean isClose = false;
-            if (i == MAX_COUNT - 1) {
+            if (i == InsertConstant.MAX_COUNT - 1) {
                 isClose = true;
             }
             doInsert(user, isClose);
-
-            long endTime = System.currentTimeMillis();
-            float currentTime = (endTime - startTime) / 1000F;
-            totalTime += currentTime;
-            System.out.println("第" + index + "次执行");
-            System.out.println("本次耗时：" + Float.toString(currentTime) + "秒");
-            System.out.println("总耗时：" + Float.toString(totalTime) + "秒");
-            System.out.println("==============================");
-            System.out.println();
         }
+
+        num++;
+        long endTime = System.currentTimeMillis();
+        System.out.println("子线程" + num + "结束：" + endTime);
     }
 
     private static void doInsert(User user, boolean isClose) throws Exception {
@@ -70,17 +76,23 @@ public class InsertTest {
 
             //从连接池获取连接
             con = connectionUtils.getCurrentThreadConn();
-            String sql = "update user set username='tyw' where id=1";
+            String sql = "insert into user(id,username,password,age,sex) values(?,?,?,?,?)";
             preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, user.getId());
+            preparedStatement.setString(2, user.getUsername());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setInt(4, user.getAge());
+            preparedStatement.setInt(5, user.getSex());
             preparedStatement.executeUpdate();
 
             // 提交事务
             transactionManager.commit();
-            System.out.println("数据已插入" + user);
+            // System.out.println("数据已插入" + user);
         } catch (Exception e) {
             e.printStackTrace();
             // 回滚事务
             if (transactionManager != null) {
+                System.out.println("数据插入异常" + user);
                 transactionManager.rollback();
             }
         } finally {
