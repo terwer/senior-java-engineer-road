@@ -1,5 +1,7 @@
 package com.terwergreen;
 
+import com.terwergreen.action.export.ExportAction;
+import com.terwergreen.action.export.ExportConstant;
 import com.terwergreen.action.insert.InsertAction;
 import com.terwergreen.action.insert.InsertConstant;
 import com.terwergreen.util.SpringBeanUtil;
@@ -27,16 +29,15 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         int numOfCores = Runtime.getRuntime().availableProcessors();
-        logger.info("需要处理的数据总数：" + InsertConstant.MAX_COUNT);
+        logger.info("需要处理的数据总数：" + ExportConstant.MAX_COUNT);
         logger.info("当前处理器数目：" + numOfCores);
-        logger.info("当前处理任务的线程数目：" + InsertConstant.MAX_THREAD_COUNT);
+        logger.info("当前处理任务的线程数目：" + ExportConstant.MAX_THREAD_COUNT);
 
         logger.info("开始插入数据");
-        InsertAction insertAction = SpringBeanUtil.getBean(InsertAction.class);
-        insertAction.doAction();
-        // float time = insertAction.calcTime(1647624867640L, 1647624387757L);
-        // logger.info("耗时：" + time + "分钟");
+        // InsertAction insertAction = SpringBeanUtil.getBean(InsertAction.class);
+        // insertAction.doAction();
 
-        // logger.info("控制台已启动");
+        ExportAction exportAction = SpringBeanUtil.getBean(ExportAction.class);
+        exportAction.doAction();
     }
 }
