@@ -55,7 +55,7 @@ function OnAction(control) {
             var myRange = doc.Range(0, 0);
             doc.Indexes.Add(myRange, false, null, null, 1);
 
-            doc.Indexes.Format = "4";
+            doc.Indexes.Format = 4;
             console.log(doc.Indexes);
             // =========================
             alert(doc.Name)
