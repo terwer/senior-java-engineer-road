@@ -432,7 +432,7 @@ public class SimpleExecutor implements Executor {
 
 运行效果
 
-<img src="https://gitee.com/youweics/upload/raw/main/img/20220314184626.png" alt="image-20220314182811682" style="zoom:50%;" />
+<img src="https://ghproxy.com/https://raw.githubusercontent.com/terwer/upload/main/img/20220314184626.png" alt="image-20220314182811682" style="zoom:50%;" />
 
 ### 问题修复
 
@@ -455,7 +455,7 @@ Process finished with exit code 0
 
 修正方案
 
-<img src="https://gitee.com/youweics/upload/raw/main/img/20220314190534.png" alt="image-20220314190526971" style="zoom:50%;" />
+<img src="https://ghproxy.com/https://raw.githubusercontent.com/terwer/upload/main/img/20220314190534.png" alt="image-20220314190526971" style="zoom:50%;" />
 
 修正后
 
@@ -497,9 +497,9 @@ https://github.com/terwer/senior-java-engineer-road/tree/master/p7-skill/framewo
 
 使用代理模式生成Dao层接口的实现类
 
-<img src="https://gitee.com/youweics/upload/raw/main/img/20220314210022.png" alt="image-20220314210007908" style="zoom:50%;" />
+<img src="https://ghproxy.com/https://raw.githubusercontent.com/terwer/upload/main/img/20220314210022.png" alt="image-20220314210007908" style="zoom:50%;" />
 
-<img src="https://gitee.com/youweics/upload/raw/main/img/20220314212430.png" alt="image-20220314212415390" style="zoom:50%;" />
+<img src="https://ghproxy.com/https://raw.githubusercontent.com/terwer/upload/main/img/20220314212430.png" alt="image-20220314212415390" style="zoom:50%;" />
 
 ### 优化版代码
 

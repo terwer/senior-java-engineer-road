@@ -1,7 +1,9 @@
 package com.terwergreen;
 
 import com.terwergreen.mapper.OrderMapper;
+import com.terwergreen.mapper.UserMapper;
 import com.terwergreen.pojo.Order;
+import com.terwergreen.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -26,11 +28,25 @@ public class MyBatisQueryMapTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        OrderMapper userMapper = sqlSession.getMapper(OrderMapper.class);
+        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
 
-        List<Order> orderList = userMapper.findOrderAndUser();
+        List<Order> orderList = orderMapper.findOrderAndUser();
         for (Order order : orderList) {
             System.out.println(order);
+        }
+    }
+
+    @Test
+    public void test2() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        List<User> userList = userMapper.findAll();
+        for (User user : userList) {
+            System.out.println(user);
         }
     }
 }
