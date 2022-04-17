@@ -1,7 +1,6 @@
 package com.terwergreen;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -15,7 +14,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         // test1();
-        test2();
+        test1_ok();
+        // test2();
     }
 
     private static void test1() {
@@ -34,6 +34,32 @@ public class App {
             e.printStackTrace();
         }
 
+        System.out.println("count结果：" + count);
+    }
+
+    private static void test1_ok() {
+        Thread[] threads = new Thread[1000];
+
+        try {
+            for (int i = 0; i < 1000; i++) {
+                final Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        incr();
+                    }
+                });
+
+                threads[i] = thread;
+                thread.start();
+            }
+
+            // 等待执行完
+            for (Thread thread : threads) {
+                thread.join();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("count结果：" + count);
     }
 
