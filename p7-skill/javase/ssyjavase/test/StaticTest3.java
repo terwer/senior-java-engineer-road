@@ -2,6 +2,12 @@ class StaticTest3{
 	public static void main(String[] args){
 		N n = new N();
 		n.output();
+
+		System.out.println("===========");
+		System.out.println();
+
+		M m = new N();
+		m.output();
 	}
 }
 
