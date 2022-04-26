@@ -1,7 +1,9 @@
 # senior-java-engineer-road
 
 #### 介绍
-a roud to senior java enfineer
+Java高级工程师之路。
+
+[Gitee码云仓库](https://gitee.com/youweics/senior-java-engineer-road)
 
 # 目录
 

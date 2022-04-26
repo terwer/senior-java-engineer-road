@@ -1,4 +1,4 @@
-package com.terwergreen;
+package com.terwergreen.codec;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -32,6 +32,10 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<SocketChannel>() { // 7. 创建一个通道初始化对象
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+                        // 添加解码器，要放在自定义解码器之前
+                        ch.pipeline().addLast("MessageDecoder", new MessageDecoder());
+                        // 添加编码器
+                        ch.pipeline().addLast("MessageEncoder",new MessageEncoder());
                         // 8. 向pipeline中添加自定义业务处理handler
                         ch.pipeline().addLast(new NettyServerHandler());
                     }

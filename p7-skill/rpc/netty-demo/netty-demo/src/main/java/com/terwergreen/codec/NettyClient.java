@@ -1,4 +1,4 @@
-package com.terwergreen;
+package com.terwergreen.codec;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -28,6 +28,10 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() { // 4. 设置客户端通道实现为NIO
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception { // 5. 创建一个通道初始化对象
+                        // 添加解码器，要放在自定义解码器之前
+                        ch.pipeline().addLast("MessageDecoder", new MessageDecoder());
+                        // 添加编码器
+                        ch.pipeline().addLast("MessageEncoder",new MessageEncoder());
                         // 6. 向pipeline中添加自定义业务处理handler
                         ch.pipeline().addLast(new NettyClientHandler());
                     }

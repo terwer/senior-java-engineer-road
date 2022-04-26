@@ -1,9 +1,7 @@
-package com.terwergreen;
+package com.terwergreen.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandler;
 import io.netty.util.CharsetUtil;
@@ -23,8 +21,9 @@ public class NettyServerHandler implements ChannelInboundHandler {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf = (ByteBuf) msg;
-        System.out.println("客户端发过来的消息：" + byteBuf.toString(CharsetUtil.UTF_8));
+//        ByteBuf byteBuf = (ByteBuf) msg;
+//        System.out.println("客户端发过来的消息：" + byteBuf.toString(CharsetUtil.UTF_8));
+        System.out.println("客户端发过来的消息：" + msg);
     }
 
     /**
@@ -35,7 +34,8 @@ public class NettyServerHandler implements ChannelInboundHandler {
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.copiedBuffer("你好，我是Netty服务端。", CharsetUtil.UTF_8));
+//        ctx.writeAndFlush(Unpooled.copiedBuffer("你好，我是Netty服务端。", CharsetUtil.UTF_8));
+        ctx.writeAndFlush("你好，我是Netty服务端。");
     }
 
     /**
