@@ -7,5 +7,5 @@ a roud to senior java enfineer
 
 **阿里p7必备技能**   
 
-![](p7-skill/p7.png)
+![](p7-skill/p7-skill.png)
 
