@@ -30,6 +30,7 @@
 .oracle_data
 classes
 
+# Mac files
 .DS_Store
 target
 *.class
