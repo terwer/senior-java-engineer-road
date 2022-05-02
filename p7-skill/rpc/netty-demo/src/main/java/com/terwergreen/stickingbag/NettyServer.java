@@ -1,6 +1,8 @@
 package com.terwergreen.stickingbag;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
@@ -8,6 +10,10 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * Netty服务端
@@ -32,6 +38,11 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<SocketChannel>() { // 7. 创建一个通道初始化对象
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+//                        ByteBuf byteBuf =
+//                                Unpooled.copiedBuffer("$".getBytes(StandardCharsets.UTF_8));
+//                        ch.pipeline().addLast(new DelimiterBasedFrameDecoder(2048, byteBuf));
+                        // 添加解码器，解决粘包问题
+                        ch.pipeline().addLast(new LineBasedFrameDecoder(2048));
                         // 8. 向pipeline中添加自定义业务处理handler
                         ch.pipeline().addLast(new NettyServerHandler());
                     }

@@ -6,6 +6,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 
 import java.net.InetSocketAddress;
 
@@ -28,6 +29,8 @@ public class NettyClient {
                 .handler(new ChannelInitializer<SocketChannel>() { // 4. 设置客户端通道实现为NIO
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception { // 5. 创建一个通道初始化对象
+                        // 添加解码器，解决粘包问题
+                        ch.pipeline().addLast(new LineBasedFrameDecoder(2048));
                         // 6. 向pipeline中添加自定义业务处理handler
                         ch.pipeline().addLast(new NettyClientHandler());
                     }

@@ -24,7 +24,9 @@ public class NettyClientHandler implements ChannelInboundHandler {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         for (int i = 0; i < 10; i++) {
-            ctx.writeAndFlush(Unpooled.copiedBuffer("你好,我是Netty客户端" + i, CharsetUtil.UTF_8));
+            // ctx.writeAndFlush(Unpooled.copiedBuffer("你好,我是Netty客户端" + i, CharsetUtil.UTF_8));
+            ctx.writeAndFlush(Unpooled.copiedBuffer("你好,我是Netty客户端" + i + "\n", CharsetUtil.UTF_8));
+//            ctx.writeAndFlush(Unpooled.copiedBuffer("你好,我是Netty客户端" + i + "$", CharsetUtil.UTF_8));
         }
     }
 
