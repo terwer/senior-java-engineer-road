@@ -8,6 +8,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
 
 /**
  * Netty服务端
@@ -32,6 +33,8 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<SocketChannel>() { // 7. 创建一个通道初始化对象
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+                        // 添加解码器，解决粘包问题
+                        ch.pipeline().addLast(new LineBasedFrameDecoder(102400));
                         // 8. 向pipeline中添加自定义业务处理handler
                         ch.pipeline().addLast(new NettyServerHandler());
                     }

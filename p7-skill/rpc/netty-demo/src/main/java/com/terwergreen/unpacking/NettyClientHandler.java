@@ -25,7 +25,8 @@ public class NettyClientHandler implements ChannelInboundHandler {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         // 一次发送102400字节数据
         char[] chars = new char[102400];
-        Arrays.fill(chars, 0, 102399, 'a');
+        Arrays.fill(chars, 0, 102390, 'a');
+        chars[102399] = '\n';
         for (int i = 0; i < 10; i++) {
             ctx.writeAndFlush(Unpooled.copiedBuffer(chars, CharsetUtil.UTF_8));
         }
