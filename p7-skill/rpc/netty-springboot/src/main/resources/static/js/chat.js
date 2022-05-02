@@ -15,11 +15,13 @@ $(function () {
 
     var ws = new WebSocket("ws://localhost:8081/chat");
     ws.onopen = function () {
-        console.log("连接成功.")
+        console.log("连接成功")
     }
+
     ws.onmessage = function (evt) {
         showMessage(evt.data);
     }
+
     ws.onclose = function (){
         console.log("连接关闭")
     }

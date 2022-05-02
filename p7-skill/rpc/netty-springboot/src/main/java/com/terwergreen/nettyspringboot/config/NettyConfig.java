@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  * @date: 2022-05-01 00:04
  **/
 @Component
-@Data
 @ConfigurationProperties(prefix = "netty")
+@Data
 public class NettyConfig {
     // netty监听端口
     private int port;
