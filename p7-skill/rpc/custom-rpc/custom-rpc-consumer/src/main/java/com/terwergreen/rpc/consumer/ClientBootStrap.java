@@ -1,6 +1,6 @@
 package com.terwergreen.rpc.consumer;
 
-import com.terwergreen.api.IUSerService;
+import com.terwergreen.api.IUserService;
 import com.terwergreen.pojo.User;
 import com.terwergreen.rpc.consumer.proxy.RpcClientProxy;
 
@@ -13,7 +13,7 @@ import com.terwergreen.rpc.consumer.proxy.RpcClientProxy;
  **/
 public class ClientBootStrap {
     public static void main(String[] args) {
-        IUSerService userService = (IUSerService) RpcClientProxy.createProxy(IUSerService.class);
+        IUserService userService = (IUserService) RpcClientProxy.createProxy(IUserService.class);
         User user = userService.getById(1);
         System.out.println(user);
     }

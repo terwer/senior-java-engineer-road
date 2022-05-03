@@ -56,6 +56,9 @@ public class RpcClientHandler extends SimpleChannelInboundHandler implements Cal
 
     @Override
     public synchronized Object call() throws Exception {
+        String ipAddr = ctx.channel().remoteAddress().toString();
+        System.out.println("远程IP地址："+ipAddr);
+
         // 消息发送
         ctx.writeAndFlush(requestMessage);
         // 线程等待

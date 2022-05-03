@@ -82,6 +82,8 @@ public class RpcServerHandler extends SimpleChannelInboundHandler<String> implem
             e.printStackTrace();
         }
 
+        String ipAddr = ctx.channel().remoteAddress().toString();
+        System.out.println("Channel.remoteAddress():"+ipAddr);
         ctx.writeAndFlush(JSON.toJSONString(rpcResponse));
     }
 

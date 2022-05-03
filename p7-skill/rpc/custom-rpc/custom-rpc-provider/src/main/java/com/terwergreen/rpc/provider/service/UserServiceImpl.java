@@ -1,6 +1,6 @@
 package com.terwergreen.rpc.provider.service;
 
-import com.terwergreen.api.IUSerService;
+import com.terwergreen.api.IUserService;
 import com.terwergreen.pojo.User;
 import com.terwergreen.rpc.provider.anno.RpcService;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.util.Map;
  **/
 @RpcService
 @Service
-public class UserServiceImpl implements IUSerService {
+public class UserServiceImpl implements IUserService {
     Map<Object, User> userMap = new HashMap<>();
 
     @Override
