@@ -1,5 +1,8 @@
 package com.terwergreen
 
+import java.sql.Connection
+import java.sql.DriverManager
+
 /**
  * MainKt
  *
@@ -7,9 +10,6 @@ package com.terwergreen
  * @author: terwer
  * @date: 2022-05-08 14:35
  **/
-import java.sql.Connection
-import java.sql.DriverManager
-
 object MainKt {
     @Throws(Exception::class)
     @JvmStatic
