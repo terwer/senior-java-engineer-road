@@ -34,14 +34,14 @@ object MainKt {
             val resultSet = preparedStatement.executeQuery()
             while (resultSet.next()) {
 
-                val user = User()
+                val user = UserKt()
                 val id = resultSet.getInt("id")
                 val name = resultSet.getString("name")
                 user.id = id
                 user.name = name
                 println("user = $user")
 
-                val user2 = User()
+                val user2 = UserKt()
                 val id2 = resultSet.getInt(1)
                 val name2 = resultSet.getString(2)
                 user2.id = id
