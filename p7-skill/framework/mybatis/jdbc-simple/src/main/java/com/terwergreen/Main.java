@@ -1,13 +1,11 @@
 package com.terwergreen;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
-public class App {
+public class Main {
     public static void main(String[] args) throws Exception {
         Connection connection = null;
 
@@ -15,7 +13,7 @@ public class App {
             // 1、加载驱动
             // The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
             // 备注：mysql8.0的driver不需要在注册了
-            // Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
 
             // 2、获取链接
             String url = "jdbc:mysql://localhost:3306/jdbc_simple?charcterEncoding=utf-8&useSSL=false";
