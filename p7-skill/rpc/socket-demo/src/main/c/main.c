@@ -9,20 +9,16 @@
 #include <unistd.h>
 
 int main() {
-    int serv_sock = 0, sock = 0;
-    struct sockaddr_in serv_addr;
-
     char sendBuff[2015];
     time_t ticks;
 
     // 创建socket
-    serv_sock = socket(AF_INET, SOCK_STREAM, 0);
+    int serv_sock = socket(AF_INET, SOCK_STREAM, 0);
     if (serv_sock < 0) {
         exit(1);
     }
-    memset(&serv_addr, '0', sizeof(serv_addr));
-    memset(sendBuff, '0', sizeof(sendBuff));
 
+    struct sockaddr_in serv_addr;
     serv_addr.sin_family = AF_INET;
     // serv_addr.sin_addr.s_addr = INADDR_ANY;
     serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -38,14 +34,13 @@ int main() {
 
     while (true) {
         // 接收消息
-        sock = accept(serv_sock, (struct sockaddr *) NULL, NULL);
+        int sock = accept(serv_sock, (struct sockaddr *) NULL, NULL);
 
         // 发送消息
         snprintf(sendBuff, sizeof(sendBuff), "这是从C语言版的socket服务器发送过来的消息:%.24s\r\n", ctime(&ticks));
         write(sock, sendBuff, strlen(sendBuff));
 
         // 关闭
-        // close(server_socket);
         close(sock);
 
         sleep(1);
