@@ -1,4 +1,4 @@
-(ns com.terwergreen.clojore.ServerDemo
+(ns com.terwergreen.clojure.ServerDemo
   (:import java.util.concurrent.Executors)
   (:import java.net.ServerSocket)
   )
@@ -23,12 +23,14 @@
     (def socket (.accept serverSocket))
 
     ;Runnable线程
-    (def run_fun (fn [message] (println message)))
+    (def run_fun (fn [socket] (println "message")))
     ;放入线程池
-    (.execute executorService (run_fun socket))
+    ;(def call_run_fun (run_fun socket))
+    ;TODO:lambda传参有问题
+    (.execute executorService call_run_fun)
 
     )
 
   )
 
-(defn handle [socket] (str "Hello, " socket))
+;(defn handle [socket] (print "Hello"))
