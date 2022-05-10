@@ -1,1 +1,18 @@
-console.log("hello")
+// const http = require("http");
+// const span = require("ansispan");
+// require("colors");
+//
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {"Content-Type": "text/html"});
+//     response.end(span("Hello Graal.js!".green));
+// }).listen(8000, function () {
+//     console.log("Graal.js server running at http://127.0.0.1:8000/".red);
+// });
+//
+// setTimeout(function () {
+//     console.log("DONE!");
+//     process.exit();
+// }, 2000);
+
+var BigInteger = Java.type('java.math.BigInteger');
+console.log(BigInteger.valueOf(2).pow(100).toString(16));
