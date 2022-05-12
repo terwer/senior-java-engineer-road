@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project zip-demo">
+    <!-- ANT 1.7 is required -->
+    <!-- define folder properties -->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value=""/>
+    <property name="dir.jarfile" value="/Users/terwer/Downloads"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/unzip.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.terwergreen.UnZip"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.buildfile}/target/classes"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.buildfile}/lib/ant-1.10.11.jar"/>
+        </jar>
+    </target>
+</project>

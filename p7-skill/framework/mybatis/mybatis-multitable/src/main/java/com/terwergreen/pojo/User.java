@@ -16,6 +16,9 @@ public class User {
     // 代表当前用户具备那些订单
     private List<Order> orderList;
 
+    // 代表当前用户具备的那些角色
+    private List<Role> roleList;
+
     public Integer getId() {
         return id;
     }
@@ -40,12 +43,21 @@ public class User {
         this.orderList = orderList;
     }
 
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", orderList=" + orderList +
+                ", roleList=" + roleList +
                 '}';
     }
 }
