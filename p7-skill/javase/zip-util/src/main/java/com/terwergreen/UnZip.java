@@ -40,6 +40,8 @@ public class UnZip {
         try {
             while (emu.hasMoreElements()) {
                 ZipEntry entry = (ZipEntry) emu.nextElement();
+                // entry.setUnixMode(ZipEntry.PLATFORM_UNIX);
+                
                 if (entry.getName().contains("..\\")
                         || entry.getName().contains("../")) {
                     throw new RuntimeException(new Exception("error file name: " + entry.getName()));
@@ -49,7 +51,6 @@ public class UnZip {
                     if (isWindows) {
                         new File(filePath + entry.getName()).mkdirs();
                     } else {
-                        // entry.setUnixMode(ZipEntry.PLATFORM_UNIX);
                         makeDirectory(new File(filePath), entry.getName());
                     }
                     continue;
