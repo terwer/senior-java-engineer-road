@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Enumeration;
+
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 
@@ -16,9 +17,8 @@ import org.apache.tools.zip.ZipFile;
  **/
 public class UnZip {
     public static void main(String[] args) throws IOException {
-        // c:/landray/kmss/resource/ui-ext/scormcourse/2022/05/180b71d532b58de2d7f795e4e6ba7220/scorm.zip
-        String fileName = "/Users/terwer/Downloads/scorm.zip";
-        if(args.length > 0){
+        String fileName = "/Users/terwer/Downloads/temp.zip";
+        if (args.length > 0) {
             fileName = args[0];
         }
         unzip(fileName);
@@ -46,11 +46,11 @@ public class UnZip {
                 }
                 Boolean isWindows = System.getProperties().getProperty("os.name").toUpperCase().indexOf("WINDOWS") != -1;
                 if (entry.isDirectory()) {
-                    if(isWindows) {
+                    if (isWindows) {
                         new File(filePath + entry.getName()).mkdirs();
-                    }else {
+                    } else {
                         // entry.setUnixMode(ZipEntry.PLATFORM_UNIX);
-                        makeDirectory(new File(filePath),  entry.getName());
+                        makeDirectory(new File(filePath), entry.getName());
                     }
                     continue;
                 }
@@ -58,9 +58,9 @@ public class UnZip {
                 BufferedInputStream bis = new BufferedInputStream(
                         zipFile.getInputStream(entry));
                 File file = null;
-                if(isWindows) {
+                if (isWindows) {
                     file = new File(filePath + entry.getName());
-                }else {
+                } else {
                     file = makeFile(new File(filePath), entry.getName());
                 }
                 File parent = file.getParentFile();
@@ -94,29 +94,21 @@ public class UnZip {
     }
 
     private static void makeDirectory(File destination, String fileName) {
-
         String[] dirs = fileName.split("\\\\");
-
         if (dirs == null) {
             return;
         }
 
         String path = "";
-
         for (String dir : dirs) {
-
             path = path + File.separator + dir;
             new File(destination, path).mkdir();
-
         }
-
     }
 
     private static File makeFile(File destination, String name)
             throws IOException {
-
         String[] dirs = name.split("\\\\");
-
         if (dirs == null) {
             return null;
         }
@@ -125,16 +117,11 @@ public class UnZip {
         int size = dirs.length;
 
         if (size == 1) {
-
             return new File(destination, name);
-
         } else if (size > 1) {
-
             for (int i = 0; i < dirs.length - 1; i++) {
-
                 path = path + File.separator + dirs[i];
                 new File(destination, path).mkdir();
-
             }
 
             path = path + File.separator + dirs[dirs.length - 1];
@@ -142,11 +129,8 @@ public class UnZip {
 
             f.createNewFile();
             return f;
-
         } else {
-
             return null;
-
         }
     }
 }
