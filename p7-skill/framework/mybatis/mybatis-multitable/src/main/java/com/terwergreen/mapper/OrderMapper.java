@@ -1,6 +1,7 @@
 package com.terwergreen.mapper;
 
 import com.terwergreen.pojo.Order;
+import com.terwergreen.pojo.User;
 
 import java.util.List;
 

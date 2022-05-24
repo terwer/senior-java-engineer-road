@@ -10,4 +10,12 @@ package com.terwergreen.pojo;
 public class Role {
     private Integer id;
     private String rolename;
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", rolename='" + rolename + '\'' +
+                '}';
+    }
 }

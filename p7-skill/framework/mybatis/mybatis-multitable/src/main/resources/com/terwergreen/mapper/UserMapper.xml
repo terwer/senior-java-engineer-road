@@ -14,8 +14,23 @@
         </collection>
     </resultMap>
 
+    <resultMap id="userRoleMap" type="com.terwergreen.pojo.User">
+        <result property="id" column="id"></result>
+        <result property="username" column="username"></result>
+
+        <collection property="roleList" ofType="com.terwergreen.pojo.Role">
+            <result column="rid" property="id"></result>
+            <result column="rolename" property="rolename"></result>
+        </collection>
+    </resultMap>
+
     <!-- resultMap：手动配置实体属性与表字段的映射关系 -->
     <select id="findAll" resultMap="userMap">
         select u.*,o.ordertime,o.total,o.uid from user u left join orders o on u.id = o.uid
+    </select>
+
+    <select id="findAllUserAndRole" resultMap="userRoleMap">
+        select u.id,u.username,r.id as rid,r.rolename from user u left join sys_user_role ur on u.id=ur.userid
+        inner join sys_role r on r.id=ur.roleid
     </select>
 </mapper>

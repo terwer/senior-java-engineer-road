@@ -41,7 +41,7 @@ public class UnZip {
             while (emu.hasMoreElements()) {
                 ZipEntry entry = (ZipEntry) emu.nextElement();
                 // entry.setUnixMode(ZipEntry.PLATFORM_UNIX);
-                
+
                 if (entry.getName().contains("..\\")
                         || entry.getName().contains("../")) {
                     throw new RuntimeException(new Exception("error file name: " + entry.getName()));
