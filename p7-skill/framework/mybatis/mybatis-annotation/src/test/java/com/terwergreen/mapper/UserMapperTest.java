@@ -8,19 +8,21 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class UserMapperTest{
+public class UserMapperTest {
 
     private UserMapper userMapper;
+    private SqlSession sqlSession;
 
     @Before
     public void before() throws Exception {
         System.out.println("before...");
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        sqlSession = sqlSessionFactory.openSession();
         userMapper = sqlSession.getMapper(UserMapper.class);
     }
 
@@ -30,5 +32,34 @@ public class UserMapperTest{
         for (User user : all) {
             System.out.println(user);
         }
+    }
+
+    @Test
+    public void add() throws IOException {
+        User user = new User();
+        user.setUsername("测试3");
+        userMapper.add(user);
+
+        // 这里一定要加，否则不会提交事务
+        sqlSession.commit(true);
+    }
+
+    @Test
+    public void update() {
+        User user = new User();
+        user.setId(3);
+        user.setUsername("测试11");
+        userMapper.update(user);
+
+        // 这里一定要加，否则不会提交事务
+        sqlSession.commit(true);
+    }
+
+    @Test
+    public void delete() {
+        userMapper.delete(3);
+
+        // 这里一定要加，否则不会提交事务
+        sqlSession.commit(true);
     }
 }
