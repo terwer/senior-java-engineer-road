@@ -23,6 +23,8 @@ public class UserMapperTest {
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         sqlSession = sqlSessionFactory.openSession();
+        // 这样也是可以的，这样的话后面就不用每次都设置了
+        // sqlSession = sqlSessionFactory.openSession(true);
         userMapper = sqlSession.getMapper(UserMapper.class);
     }
 

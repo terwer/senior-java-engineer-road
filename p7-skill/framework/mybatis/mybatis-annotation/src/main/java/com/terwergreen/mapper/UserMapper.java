@@ -16,15 +16,27 @@ import java.util.List;
  * @date: 2022-05-25 13:27
  **/
 public interface UserMapper {
+    /**
+     * 查询用户
+     */
     @Select("select * from user")
     List<User> findAll();
 
+    /**
+     * 新增用户
+     */
     @Insert("insert into user(username) values(#{username})")
     void add(User user);
 
+    /**
+     * 更新用户
+     */
     @Update("update user set username=#{username} where id=#{id}")
     void update(User user);
 
+    /**
+     * 删除用户
+     */
     @Delete("delete from user where id=#{id}")
     void delete(Integer id);
 }
