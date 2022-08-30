@@ -6,7 +6,7 @@
 
     <settings>
         <!-- 输出日志 -->
-        <setting name="logImpl" value="STDOUT_LOGGING" />
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 
     <!-- 为实体的全限定类名取别名 -->
@@ -15,14 +15,14 @@
         <!-- <typeAlias type="com.terwergreen.pojo.User" alias="user"/> -->
 
         <!-- 批量起别名：改包下所有类本身的类名，不区分大小写 -->
-        <package name="com.terwergreen.pojo"/> 
+        <package name="com.terwergreen.pojo"/>
     </typeAliases>
 
     <!-- environments：运行环境 -->
     <environments default="development">
         <environment id="development">
             <!-- 当前事务交给JDBC管理 -->
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="JDBC"/>
             <!-- 当前使用MyBatis提供的连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
@@ -32,7 +32,7 @@
             </dataSource>
         </environment>
         <environment id="production">
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
@@ -44,9 +44,9 @@
 
     <!-- 引入映射配置文件 -->
     <mappers>
-        <!--
-        <mapper resource="OrderMapper.xml"/>
-        -->
-        <package name="com.terwergreen.mapper"/>
+       <!--
+       <mapper class="com.terwergreen.mapper.UserMapper"/>
+       -->
+       <package name="com.terwergreen.mapper"/>
     </mappers>
 </configuration>
