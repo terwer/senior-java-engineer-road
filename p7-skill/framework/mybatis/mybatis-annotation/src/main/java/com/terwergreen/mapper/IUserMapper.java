@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * 用户映射
  *
- * @name: UserMapper
+ * @name: IUserMapper
  * @author: terwer
  * @date: 2022-05-25 13:27
  **/
-public interface UserMapper {
+public interface IUserMapper {
     /**
      * 查询用户
      */
@@ -39,4 +39,12 @@ public interface UserMapper {
      */
     @Delete("delete from user where id=#{id}")
     void delete(Integer id);
+
+    /**
+     * 根据ID查询用户
+     * @param id
+     * @return
+     */
+    @Select("select * from user where id=#{id}")
+    User findUserById(Integer id);
 }

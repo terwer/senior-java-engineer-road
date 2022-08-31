@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-public class UserMapperTest {
+public class IUserMapperTest {
 
-    private UserMapper userMapper;
+    private IUserMapper userMapper;
     private SqlSession sqlSession;
 
     @Before
@@ -25,7 +25,7 @@ public class UserMapperTest {
         sqlSession = sqlSessionFactory.openSession();
         // 这样也是可以的，这样的话后面就不用每次都设置了
         // sqlSession = sqlSessionFactory.openSession(true);
-        userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper = sqlSession.getMapper(IUserMapper.class);
     }
 
     @Test
