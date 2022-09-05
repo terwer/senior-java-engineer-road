@@ -1,6 +1,7 @@
 package com.terwergreen.mapper;
 
 import com.terwergreen.pojo.User;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -69,6 +70,13 @@ public class IUserMapperTest {
     public void testGetUserOrders() {
         List<User> userAndOrder = userMapper.findUserAndOrder();
         userAndOrder.forEach(user -> {
+            System.out.println(user);
+        });
+    }
+
+    @Test
+    public void testFindUserAndRole() {
+        userMapper.findUserAndRole().forEach(user -> {
             System.out.println(user);
         });
     }

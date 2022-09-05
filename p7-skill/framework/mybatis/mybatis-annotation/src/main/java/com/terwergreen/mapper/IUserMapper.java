@@ -64,4 +64,13 @@ public interface IUserMapper {
     })
     @Select("select * from user")
     List<User> findUserAndOrder();
+
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "roleList", column = "id", javaType = List.class,
+                    many = @Many(select = "com.terwergreen.mapper.IRoleMapper.findRolesByUserId"))
+    })
+    @Select("select * from user")
+    List<User> findUserAndRole();
 }
