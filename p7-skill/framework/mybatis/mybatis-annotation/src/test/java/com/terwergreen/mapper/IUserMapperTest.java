@@ -64,4 +64,12 @@ public class IUserMapperTest {
         // 这里一定要加，否则不会提交事务
         sqlSession.commit(true);
     }
+
+    @Test
+    public void testGetUserOrders() {
+        List<User> userAndOrder = userMapper.findUserAndOrder();
+        userAndOrder.forEach(user -> {
+            System.out.println(user);
+        });
+    }
 }

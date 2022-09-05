@@ -3,6 +3,9 @@ package com.terwergreen.mapper;
 import com.terwergreen.pojo.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -42,9 +45,23 @@ public interface IUserMapper {
 
     /**
      * 根据ID查询用户
+     *
      * @param id
      * @return
      */
     @Select("select * from user where id=#{id}")
     User findUserById(Integer id);
+
+    /**
+     * 查询用户和订单
+     *
+     * @return
+     */
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "orderList", column = "id", many = @Many(select = "com.terwergreen.mapper.IOrderMapper.findOrderByUid"), javaType = List.class)
+    })
+    @Select("select * from user")
+    List<User> findUserAndOrder();
 }
