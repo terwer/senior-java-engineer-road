@@ -1,6 +1,7 @@
 package com.terwergreen.mapper;
 
 import com.terwergreen.pojo.User;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
@@ -18,6 +19,7 @@ import java.util.List;
  * @author: terwer
  * @date: 2022-05-25 13:27
  **/
+@CacheNamespace
 public interface IUserMapper {
     /**
      * 查询用户

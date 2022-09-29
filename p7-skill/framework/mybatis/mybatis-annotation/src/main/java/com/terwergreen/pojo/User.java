@@ -1,5 +1,6 @@
 package com.terwergreen.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  * @author: terwer
  * @date: 2022-05-25 13:25
  **/
-public class User {
+public class User implements Serializable {
     private Integer id;
     private String username;
 
