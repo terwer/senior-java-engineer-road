@@ -67,7 +67,7 @@ public class CacheTest {
 
         IUserMapper userMapper1 = sqlSession1.getMapper(IUserMapper.class);
         IUserMapper userMapper2 = sqlSession2.getMapper(IUserMapper.class);
-        IUserMapper userMapper3 = sqlSession3.getMapper(IUserMapper.class);
+        // IUserMapper userMapper3 = sqlSession3.getMapper(IUserMapper.class);
 
         User user1 = userMapper1.findUserById(1);
         // 清空一级缓存
