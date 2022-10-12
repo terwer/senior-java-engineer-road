@@ -24,7 +24,6 @@ public class CacheTest {
 
     @Before
     public void before() throws Exception {
-        System.out.println("before...");
         InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
         sqlSession = sqlSessionFactory.openSession();
@@ -57,25 +56,5 @@ public class CacheTest {
         // 第二次查询
         User user2 = userMapper.findUserById(1);
         System.out.println(user2);
-    }
-
-    @Test
-    public void secondLevelCache() {
-        SqlSession sqlSession1 = sqlSessionFactory.openSession();
-        SqlSession sqlSession2 = sqlSessionFactory.openSession();
-        SqlSession sqlSession3 = sqlSessionFactory.openSession();
-
-        IUserMapper userMapper1 = sqlSession1.getMapper(IUserMapper.class);
-        IUserMapper userMapper2 = sqlSession2.getMapper(IUserMapper.class);
-        // IUserMapper userMapper3 = sqlSession3.getMapper(IUserMapper.class);
-
-        User user1 = userMapper1.findUserById(1);
-        // 清空一级缓存
-        sqlSession1.close();
-        User user2 = userMapper2.findUserById(1);
-        System.out.println(user1 == user2);
-
-        // User user3 = userMapper3.findUserById(1);
-
     }
 }
