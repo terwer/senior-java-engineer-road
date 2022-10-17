@@ -1,3 +1,1 @@
-SELECT salary 
-FROM hr.employees 
-WHERE employee_id=108;
+SELECT salary FROM hr.employees WHERE employee_id=108;

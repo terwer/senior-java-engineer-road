@@ -1,0 +1,1 @@
+Moved to [portable-oracle19c](https://github.com/terwer/portable-oracle19c)
