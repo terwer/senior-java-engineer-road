@@ -58,8 +58,34 @@ public class ArrayTest {
 
         int[] a = {1, 2, 3};
         int[] b = {1, 2, 3};
-        System.out.println(a==b);
+
+        boolean isEqual = isEqual(a, b);
+
+        System.out.println(a == b);
         System.out.println(a.equals(b));
         System.out.println(Arrays.equals(a, b));
+
+        System.out.println("---------------------");
+        System.out.println(isEqual);
+    }
+
+    public static boolean isEqual(int[] a, int[] b) {
+        boolean isEqual = true;
+
+        if (a == null || b == null) {
+            return false;
+        }
+
+        if (a.length != b.length) {
+            return false;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                isEqual = false;
+                break;
+            }
+        }
+        return isEqual;
     }
 }
