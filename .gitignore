@@ -37,3 +37,6 @@ target
 oradata
 *.out
 .xmind
+
+# eclipse
+.metadata/
