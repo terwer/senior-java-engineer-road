@@ -15,10 +15,10 @@ public class ArrayListTest4 {
 		list.add(new Integer(6));
 
 		/**
-		 * 不能将Object[]转换为Integer[]
+		 * 涓嶈兘灏哋bject[]杞崲涓篒nteger[]
 		 */
 
-		// 这个地方会报错，类型转换异常
+		// 杩欎釜鍦版柟浼氭姤閿欙紝绫诲瀷杞崲寮傚父
 		// Integer[] in = (Integer[]) list.toArray();
 		// for (int i = 0; i < in.length; i++) {
 		// Integer integer = in[i];
