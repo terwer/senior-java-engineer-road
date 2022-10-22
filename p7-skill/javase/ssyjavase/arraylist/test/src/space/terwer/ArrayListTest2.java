@@ -11,11 +11,11 @@ public class ArrayListTest2 {
 		
 		String str = (String)list.get(0);
 		Integer in = (Integer)list.get(1);
-		String str2 = (String)list.get(1);
+		// String str2 = (String)list.get(1);
 		
 		System.out.println(str);
 		System.out.println(in.intValue());
-		System.err.println(str2);
+		// System.err.println(str2);
 	}
 
 }
