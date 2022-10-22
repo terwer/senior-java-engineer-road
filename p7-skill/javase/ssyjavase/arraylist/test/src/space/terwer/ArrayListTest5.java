@@ -19,12 +19,12 @@ public class ArrayListTest5 {
 		System.out.println(list.toString());
 
 		for (int k = 0; k < 6; k++) {
-			list.add(1);
+			list.add("1");
 		}
 		System.out.println(list.size());
 
-		list.add(2);
-		list.add(2);
+		list.add("2");
+		list.add("2");
 		System.out.println(list.size());
 	}
 
