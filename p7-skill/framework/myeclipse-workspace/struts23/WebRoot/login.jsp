@@ -25,13 +25,11 @@
 	</head>
 
 	<body>
-		<form action="login">
-			用户名：
-			<input type="text" name="username" />
-			<br />
-			密码：
-			<input type="password" name="password" />
-			<br />
+		<form action="login.action">
+			用户名：<input type="text" name="username" /><br />
+			密码：<input type="password" name="password" /><br />
+			年龄：<input type="text" name="age" /><br />
+			日期：<input type="text" name="date" /><br />
 
 			<input type="submit" value="提交" />
 

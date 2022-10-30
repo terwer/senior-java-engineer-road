@@ -1,6 +1,6 @@
-package space.terwer;
+package space.terwer.action;
 
-public class LoginAction {
+public class LoginAction2 {
 	private String username;
 	private String password;
 

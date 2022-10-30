@@ -1,4 +1,4 @@
-package space.terwer;
+package space.terwer.action;
 
 import org.apache.commons.lang3.StringUtils;
 

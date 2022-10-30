@@ -7,20 +7,24 @@
 
 	<package name="struts2" extends="struts-default">
 		<!-- 不适用ActionSupport -->
-		<action name="login" class="space.terwer.LoginAction">
+		<action name="login" class="space.terwer.action.LoginAction">
 			<result name="success">/result.jsp</result>
 		</action>
 
 		<!-- 使用Struts2标签库 -->
-		<action name="login2" class="space.terwer.LoginAction2">
+		<action name="login2" class="space.terwer.action.LoginAction2">
 			<result name="success">/result.jsp</result>
 		</action>
 
 		<!-- 使用ActionSupport -->
-		<action name="login3" class="space.terwer.LoginAction3">
+		<action name="login3" class="space.terwer.action.LoginAction3">
 			<result name="success">/result.jsp</result>
 			<result name="input">/login3.jsp</result>
 			<result name="failer">/login3.jsp</result>
+		</action>
+		
+		<action name="pointConverter" class="space.terwer.action.PointAction">
+			<result name="success">/output.jsp</result>
 		</action>
 	</package>
 

@@ -25,8 +25,9 @@
 	</head>
 
 	<body>
-		用户名：${requestScope.username}
-		<br />
-		密码：${requestScope.password }
+		用户名：${requestScope.username}<br />
+		密码：${requestScope.password }<br />
+		年龄：${requestScope.age }<br />
+		日期：${requestScope.date }<br />
 	</body>
 </html>

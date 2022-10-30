@@ -11,7 +11,7 @@
 <body>
 
 	<h3 style="color:red;">使用逗号将点的两个坐标分隔开</h3>
-	<s:form name="pointConverter">
+	<s:form action="pointConverter">
 		<s:textfield name="point" label="point"></s:textfield>
 		<s:textfield name="age" label="age"></s:textfield>
 		<s:textfield name="username" label="username"></s:textfield>
