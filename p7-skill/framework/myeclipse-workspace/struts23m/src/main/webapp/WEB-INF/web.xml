@@ -13,6 +13,14 @@
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
 	
+	<!--配置/struts-tag位置-->
+	<jsp-config>
+	    <taglib>
+	        <taglib-uri>s</taglib-uri>
+	        <taglib-location>/WEB-INF/struts-tags.tld</taglib-location>
+	    </taglib>
+	</jsp-config>
+	
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>

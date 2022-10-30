@@ -9,5 +9,11 @@
 <body>
 	username:${requestScope.username}<br /> 
 	password:${requestScope.password }
+	
+	<%--
+	<br/>
+	username:<%=request.getParameter("username") %><br /> 
+	password:<%=request.getParameter("password") %>
+	--%>
 </body>
 </html>
