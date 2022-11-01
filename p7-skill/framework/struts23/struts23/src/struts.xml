@@ -13,6 +13,10 @@
 		<action name="userAction" class="space.terwer.struts23.UserAction">
 			<result name="success">/output.jsp</result>
 		</action>
+		
+		<action name="userAction2" class="space.terwer.struts23.UserAction2">
+			<result name="success">/output2.jsp</result>
+		</action>
 	</package>
 
 </struts>

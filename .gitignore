@@ -41,3 +41,4 @@ oradata
 # eclipse
 .metadata/
 *.struts.mex
+*.myumldata
