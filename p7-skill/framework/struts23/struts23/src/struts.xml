@@ -9,6 +9,10 @@
 		<action name="login" class="space.terwer.struts23.LoginAction">
 			<result name="success">/result.jsp</result>
 		</action>
+		
+		<action name="userAction" class="space.terwer.struts23.UserAction">
+			<result name="success">/output.jsp</result>
+		</action>
 	</package>
 
 </struts>

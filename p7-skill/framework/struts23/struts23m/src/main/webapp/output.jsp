@@ -10,9 +10,9 @@
 </head>
 <body>
 
-	point:<s:property value="point" />
-	age:<s:property value="age" />
-	username:<s:property value="username" />
+	point:<s:property value="point" /><br/>
+	age:<s:property value="age" /><br/>
+	username:<s:property value="username" /><br/>
 	date:<s:property value="date" />
 
 </body>

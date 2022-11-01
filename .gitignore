@@ -40,3 +40,4 @@ oradata
 
 # eclipse
 .metadata/
+*.struts.mex
