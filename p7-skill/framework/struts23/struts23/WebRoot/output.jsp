@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Struts2.3 converter result</title>
+<title>Struts2.3 converter result </title>
 </head>
 <body>
 	<s:property value="user"/>
