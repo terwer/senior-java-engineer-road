@@ -113,7 +113,7 @@ public class RegisterAction extends ActionSupport {
 		// this.clearFieldErrors();
 		// this.clearActionErrors();
 		
-		System.out.println("error cleared");
+		// System.out.println("error cleared");
 	}
 
 	@Override

@@ -14,6 +14,10 @@
 			<result name="success">/result2.jsp</result>
 		</action>
 		
+		<action name="login3" class="space.terwer.struts23.LoginAction3" method="myExecute">
+			<result name="success">/result3.jsp</result>
+		</action>
+		
 		<action name="userAction" class="space.terwer.struts23.UserAction">
 			<result name="success">/output.jsp</result>
 		</action>
