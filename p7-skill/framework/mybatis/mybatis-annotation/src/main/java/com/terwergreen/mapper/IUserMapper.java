@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -51,6 +52,7 @@ public interface IUserMapper {
      * @param id
      * @return
      */
+    @Options(useCache = false, flushCache = Options.FlushCachePolicy.TRUE)
     @Select("select * from user where id=#{id}")
     User findUserById(Integer id);
 
