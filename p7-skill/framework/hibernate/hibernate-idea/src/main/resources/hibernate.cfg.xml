@@ -14,5 +14,8 @@
 
         <!-- DB schema will be updated if needed -->
         <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- mapping -->
+        <mapping resource="space/terwer/model/Person.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
