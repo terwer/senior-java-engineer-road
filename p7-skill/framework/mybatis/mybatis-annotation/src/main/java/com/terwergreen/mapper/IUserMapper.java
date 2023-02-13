@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.cache.impl.PerpetualCache;
+import org.mybatis.caches.redis.RedisCache;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ import java.util.List;
  * @author: terwer
  * @date: 2022-05-25 13:27
  **/
-@CacheNamespace
+@CacheNamespace(implementation = RedisCache.class)
 public interface IUserMapper {
     /**
      * 查询用户
@@ -52,7 +54,7 @@ public interface IUserMapper {
      * @param id
      * @return
      */
-    @Options(useCache = false, flushCache = Options.FlushCachePolicy.TRUE)
+    @Options(useCache = true)
     @Select("select * from user where id=#{id}")
     User findUserById(Integer id);
 
