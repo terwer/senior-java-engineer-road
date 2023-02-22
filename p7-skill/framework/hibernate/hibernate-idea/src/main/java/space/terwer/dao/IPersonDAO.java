@@ -2,6 +2,8 @@ package space.terwer.dao;
 
 import space.terwer.model.Person;
 
+import java.util.List;
+
 /**
  * PersonDAO接口
  *
@@ -11,4 +13,6 @@ import space.terwer.model.Person;
  **/
 public interface IPersonDAO {
     void savePerson(Person person);
+
+    List<Person> listAllPersons();
 }

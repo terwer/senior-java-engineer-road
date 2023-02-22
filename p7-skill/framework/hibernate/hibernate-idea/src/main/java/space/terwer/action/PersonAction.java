@@ -54,6 +54,8 @@ public class PersonAction extends ActionSupport {
         IPersonService personService = new PersonServiceImpl();
         personService.savePerson(person);
 
+
+
         return SUCCESS;
     }
 }

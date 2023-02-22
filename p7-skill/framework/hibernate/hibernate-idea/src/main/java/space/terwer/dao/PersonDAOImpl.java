@@ -2,8 +2,11 @@ package space.terwer.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import space.terwer.model.Person;
 import space.terwer.util.HibernateUtil;
+
+import java.util.List;
 
 /**
  * PersonDAO实现类
@@ -30,5 +33,23 @@ public class PersonDAOImpl implements IPersonDAO {
         } finally {
             HibernateUtil.closeSession(session);
         }
+    }
+
+    @Override
+    public List<Person> listAllPersons() {
+        Session session = HibernateUtil.openSession();
+        Transaction tx = session.beginTransaction();
+
+        List<Person> list = null;
+        try {
+            // Person是类名，不是表名
+            Query query = session.createQuery("from Person");
+            list = (List<Person>) query.list();
+        } catch (Exception e) {
+
+        } finally {
+            HibernateUtil.closeSession(session);
+        }
+        return list;
     }
 }
