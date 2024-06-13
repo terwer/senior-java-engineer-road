@@ -18,6 +18,12 @@
         <package name="space.terwe.pojo"/>
     </typeAliases>
 
+    <plugins>
+        <plugin interceptor="space.terwer.plugin.MyPlugin">
+            <property name="param1" value="value1"/>
+        </plugin>
+    </plugins>
+
     <!-- environments：运行环境 -->
     <environments default="development">
         <environment id="development">
