@@ -1,0 +1,52 @@
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 加载外部的propeties文件 -->
+    <properties resource="jdbc.properties"/>
+
+    <settings>
+        <!-- 输出日志 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!-- 为实体的全限定类名取别名 -->
+    <typeAliases>
+        <!-- 给单独的实体起别名 -->
+        <!-- <typeAlias type="space.terwer.pojo.User" alias="user"/> -->
+
+        <!-- 批量起别名：改包下所有类本身的类名，不区分大小写 -->
+        <package name="space.terwe.pojo"/>
+    </typeAliases>
+
+    <!-- environments：运行环境 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 当前事务交给JDBC管理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 当前使用MyBatis提供的连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="production">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 引入映射配置文件 -->
+    <mappers>
+        <!--
+        <mapper class="space.terwer.mapper.IUserMapper"/>
+        -->
+        <package name="space.terwer.mapper"/>
+    </mappers>
+</configuration>
