@@ -29,7 +29,10 @@ public class MyPlugin implements Interceptor {
     }
 
     /**
-     * 主要是为了把这个拦截器生成一个代理放到拦截器链中 * ^Description包装目标对象 为目标对象创建代理对象 * @Param target为要拦截的对象
+     * 主要是为了把这个拦截器生成一个代理放到拦截器链中
+     *
+     * @param target 包装目标对象,为目标对象创建代理对象
+     * @return target为要拦截的对象
      */
     @Override
     public Object plugin(Object target) {
