@@ -1,3 +1,4 @@
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,6 +32,8 @@ public class MainTest {
 
     @Test
     public void testPageHelper() {
+        //设置分⻚参数
+        PageHelper.startPage(1, 2);
         List<User> select = userMapper.findAll();
         for (User user : select) {
             System.out.println(user);

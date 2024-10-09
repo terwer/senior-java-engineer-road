@@ -15,8 +15,13 @@
         <!-- <typeAlias type="space.terwer.pojo.User" alias="user"/> -->
 
         <!-- 批量起别名：改包下所有类本身的类名，不区分大小写 -->
-        <package name="space.terwe.pojo"/>
+        <package name="space.terwer.pojo"/>
     </typeAliases>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        </plugin>
+    </plugins>
 
     <!-- environments：运行环境 -->
     <environments default="development">
@@ -44,9 +49,6 @@
 
     <!-- 引入映射配置文件 -->
     <mappers>
-        <!--
-        <mapper class="space.terwer.mapper.IUserMapper"/>
-        -->
         <package name="space.terwer.mapper"/>
     </mappers>
 </configuration>
